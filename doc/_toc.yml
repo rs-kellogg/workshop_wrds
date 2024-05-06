@@ -1,0 +1,13 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+chapters:
+- file: setup
+- file: explore
+- file: query
+- file: workflow
+#- file: Exploring Datasets and Tables
+#- file: Basic Queries
+#- file: Sample Workflow

@@ -4,7 +4,7 @@
 title: Accessing WRDS API through Python
 author: Research Support
 logo: Kellogg.png
-copyright: Copyright 2024
+copyright: 2024
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html

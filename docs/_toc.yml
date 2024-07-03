@@ -6,8 +6,5 @@ root: intro
 chapters:
 - file: setup
 - file: explore
-- file: query
-- file: workflow
-#- file: Exploring Datasets and Tables
-#- file: Basic Queries
-#- file: Sample Workflow
+- file: workflow_p
+- file: workflow_r

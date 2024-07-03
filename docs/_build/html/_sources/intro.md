@@ -1,4 +1,4 @@
-# Accessing WRDS Datasets in Python
+# Accessing WRDS Datasets
 
 Wharton Research Data Services (**WRDS**) offers a multitude of ways to access the datasets they host.  A few of which include:
 
@@ -9,8 +9,9 @@ Wharton Research Data Services (**WRDS**) offers a multitude of ways to access t
 * [The WRDS Cloud](https://wrds-www.wharton.upenn.edu/pages/grid-items/accessing-wrds-cloud/)
 * Various Libraries allow you to connect to WRDS from your computer
 
-To seamlessly integrate your **WRDS** queries into your research workflow, you can access the **WRDS** API from Python with the [`wrds`](https://pypi.org/project/wrds/) package. 
-This package will enable you to connect to **WRDS** anywhere including your own computer or **KLC**. 
+To seamlessly integrate your **WRDS** queries into your research workflow, you can access the **WRDS** API from Python with the [`wrds`](https://pypi.org/project/wrds/) package, or from R with the [`RPostgres`](https://cran.r-project.org/web/packages/RPostgres/index.html) library .
+
+Both of these tool will enable you to connect to **WRDS** anywhere including **KLC** or your own computer. 
 
 ```{tableofcontents}
 ```

@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Setup - Authenticate to WRDS API &#8212; Accessing WRDS API through Python</title>
+    <title>Setup - Authenticate to WRDS &#8212; Accessing WRDS API through Python</title>
   
   
   
@@ -65,8 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'setup';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Exploring Datasets and Tables" href="explore.html" />
-    <link rel="prev" title="Accessing WRDS Datasets in Python" href="intro.html" />
+    <link rel="next" title="TAQ Project in Python" href="workflow_p.html" />
+    <link rel="prev" title="Accessing WRDS Datasets" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -172,15 +172,14 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Accessing WRDS Datasets in Python
+                    Accessing WRDS Datasets
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#"><span style="color:purple">Setup - Authenticate to WRDS API</span></a></li>
-<li class="toctree-l1"><a class="reference internal" href="explore.html"><span style="color:purple">Exploring Datasets and Tables</span></a></li>
-<li class="toctree-l1"><a class="reference internal" href="query.html"><span style="color:purple">Basic <strong>WRDS</strong> Queries</span></a></li>
-<li class="toctree-l1"><a class="reference internal" href="workflow.html">Integrate WRDS into KLC Workflow</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#"><span style="color:purple">Setup - Authenticate to WRDS</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow_p.html"><span style="color:purple">TAQ Project in Python</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow_r.html"><span style="color:purple">TAQ Project in R</span></a></li>
 </ul>
 
     </div>
@@ -353,7 +352,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -364,11 +365,21 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1><span style="color:purple">Setup - Authenticate to WRDS API</span></h1>
+    <h1><span style="color:purple">Setup - Authenticate to WRDS</span></h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-purple-make-a-hidden-credential-file-span"><span style="color:purple"><em>Make a Hidden Credential File</em></span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-purple-connecting-through-python-span"><span style="color:purple"><em>Connecting through Python</em></span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-purple-connecting-through-r-span"><span style="color:purple"><em>Connecting through R</em></span></a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -378,64 +389,63 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="span-style-color-purple-setup-authenticate-to-wrds-api-span">
-<h1><span style="color:purple">Setup - Authenticate to WRDS API</span><a class="headerlink" href="#span-style-color-purple-setup-authenticate-to-wrds-api-span" title="Permalink to this heading">#</a></h1>
-<p>In order to get started with the <strong>WRDS</strong> Application Program Interface (API), you will first need to install the <code class="docutils literal notranslate"><span class="pre">wrds</span></code> package.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="span-style-color-purple-setup-authenticate-to-wrds-span">
+<h1><span style="color:purple">Setup - Authenticate to WRDS</span><a class="headerlink" href="#span-style-color-purple-setup-authenticate-to-wrds-span" title="Permalink to this heading">#</a></h1>
+<section id="span-style-color-purple-make-a-hidden-credential-file-span">
+<h2><span style="color:purple"><em>Make a Hidden Credential File</em></span><a class="headerlink" href="#span-style-color-purple-make-a-hidden-credential-file-span" title="Permalink to this heading">#</a></h2>
+<p>In order to connect to <strong>WRDS</strong> remotely, you will first need to create a <span style="color:purple"><strong>.pgpass</strong></span> file.  You can place this file in your KLC home directory.  On KLC, navigate to your home directory.  From a terminal session, choose your preferred text editor to create a file. Below we are using the
+nano editor. Please refer to the text editor on KLC video demo if you need a refresher.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>wrds
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~
+<span class="o">!</span><span class="w"> </span>nano<span class="w"> </span>.pgpass
 </pre></div>
 </div>
 </div>
 </div>
-<p>Next, import the <code class="docutils literal notranslate"><span class="pre">wrds</span></code> package in python, along with any other packages you will use.</p>
+<p>Within this hidden pgpass file, save one line with your WRDS login credentials:</p>
+<p><code class="docutils literal notranslate"><span class="pre">wrds-pgdata.wharton.upenn.edu:9737:wrds:user_name:password</span></code></p>
+<p>You can view the contents of this file with:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To view the contents of this file, you should actually type:</span>
+<span class="o">!</span><span class="w"> </span>head<span class="w"> </span>~/.pgpass
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>wrds-pgdata.wharton.upenn.edu:9737:wrds:best-user-ever:passwordy-goodness
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="span-style-color-purple-connecting-through-python-span">
+<h2><span style="color:purple"><em>Connecting through Python</em></span><a class="headerlink" href="#span-style-color-purple-connecting-through-python-span" title="Permalink to this heading">#</a></h2>
+<p>To connect to the <strong>WRDS</strong> API through Python, install the <code class="docutils literal notranslate"><span class="pre">wrds</span></code> package. From the command line, type:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># install the `wrds` package.</span>
+<span class="o">!</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>wrds
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, import the <code class="docutils literal notranslate"><span class="pre">wrds</span></code> package in Python.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># packages</span>
 <span class="kn">import</span> <span class="nn">wrds</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>You can establish a connection with the <strong>WRDS</strong> server by logging in using your <strong>WRDS</strong> username and password. Then, you’ll be prompted to create a hidden pgpass file to store the information.</p>
+<p>You can establish a connection with the <strong>WRDS</strong> server by inserting your username in the following Python command. If you have
+already created a .pgpass file, this line will look for the file that contains this username and your corresponding password.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#conn = wrds.Connection()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WRDS recommends setting up a .pgpass file.
-You can create this file yourself at any time with the create_pgpass_file() function.
-Loading library list...
-Done
-</pre></div>
-</div>
-</div>
-</div>
-<p>The connection step prompted you to save a hidden pgpass file with your WRDS login credentials.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To view the contents of this file, you should actually type:</span>
-<span class="c1">#! head ~/.pgpass</span>
-
-<span class="c1"># I don&#39;t want to publicly share my WRDS password, </span>
-<span class="c1"># so I made an example file</span>
-<span class="o">!</span><span class="w"> </span>head<span class="w"> </span>~/.pgpass_example
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>wrds-pgdata.wharton.upenn.edu:9737:wrds:user_name:passwordy-goodness
-</pre></div>
-</div>
-</div>
-</div>
-<p>Once you have a hidden pgpass file saved, you will not have to enter your crednetials the next time you login to the <strong>WRDS</strong> API in python.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">conn</span> <span class="o">=</span> <span class="n">wrds</span><span class="o">.</span><span class="n">Connection</span><span class="p">(</span><span class="n">wrds_username</span><span class="o">=</span><span class="s1">&#39;ambreen&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">conn</span> <span class="o">=</span> <span class="n">wrds</span><span class="o">.</span><span class="n">Connection</span><span class="p">(</span><span class="n">wrds_username</span><span class="o">=</span><span class="s1">&#39;best-user-ever&#39;</span><span class="p">)</span>
+<span class="c1"># AT THIS POINT, EXPECT A DUO PUSH</span>
 </pre></div>
 </div>
 </div>
@@ -446,6 +456,137 @@ Done
 </div>
 </div>
 </div>
+<p>Note that the first time you perform this step, it will trigger <strong>two-factor-authentication</strong>. Please follow the instructions here to set this up: <a class="reference external" href="https://wrds-www.wharton.upenn.edu/pages/about/log-in-to-wrds-using-two-factor-authentication/">https://wrds-www.wharton.upenn.edu/pages/about/log-in-to-wrds-using-two-factor-authentication/</a></p>
+<p>You can test your connection with:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">get_table</span><span class="p">(</span><span class="s1">&#39;crsp&#39;</span><span class="p">,</span> <span class="s1">&#39;dsf&#39;</span><span class="p">,</span> <span class="n">obs</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print column names</span>
+<span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;cusip&#39;, &#39;permno&#39;, &#39;permco&#39;, &#39;issuno&#39;, &#39;hexcd&#39;, &#39;hsiccd&#39;, &#39;date&#39;,
+       &#39;bidlo&#39;, &#39;askhi&#39;, &#39;prc&#39;, &#39;vol&#39;, &#39;ret&#39;, &#39;bid&#39;, &#39;ask&#39;, &#39;shrout&#39;, &#39;cfacpr&#39;,
+       &#39;cfacshr&#39;, &#39;openprc&#39;, &#39;numtrd&#39;, &#39;retx&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print number of rows</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="span-style-color-purple-connecting-through-r-span">
+<h2><span style="color:purple"><em>Connecting through R</em></span><a class="headerlink" href="#span-style-color-purple-connecting-through-r-span" title="Permalink to this heading">#</a></h2>
+<p>To connect to the <strong>WRDS</strong> through R, you’ll need to install the <code class="docutils literal notranslate"><span class="pre">RPostgres</span></code> library.</p>
+<p>(Note that the lines in the cell below are used to call R in this jupyter notebook.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">rpy2</span>
+<span class="o">%</span><span class="k">load_ext</span> rpy2.ipython
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The rpy2.ipython extension is already loaded. To reload it, use:
+  %reload_ext rpy2.ipython
+</pre></div>
+</div>
+</div>
+</div>
+<p>Within R, type:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+install.packages(&quot;RPostgres&quot;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, load the library.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+library(RPostgres)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, create a connection with the following:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+wrds &lt;- dbConnect(Postgres(),
+                  host=&#39;wrds-pgdata.wharton.upenn.edu&#39;,
+                  port=9737,
+                  dbname=&#39;wrds&#39;,
+                  sslmode=&#39;require&#39;,
+                  user=&#39;ambreen&#39;)
+# AT THIS POINT, EXPECT A DUO PUSH
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can test your connection with:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+res &lt;- dbSendQuery(wrds, &quot;select * from crsp.dsf&quot;)
+data &lt;- dbFetch(res, n=10)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+# print column names
+names(data)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [1] &quot;cusip&quot;   &quot;permno&quot;  &quot;permco&quot;  &quot;issuno&quot;  &quot;hexcd&quot;   &quot;hsiccd&quot;  &quot;date&quot;   
+ [8] &quot;bidlo&quot;   &quot;askhi&quot;   &quot;prc&quot;     &quot;vol&quot;     &quot;ret&quot;     &quot;bid&quot;     &quot;ask&quot;    
+[15] &quot;shrout&quot;  &quot;cfacpr&quot;  &quot;cfacshr&quot; &quot;openprc&quot; &quot;numtrd&quot;  &quot;retx&quot;   
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
+# print number of rows
+nrow(data)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 10
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -484,15 +625,15 @@ Done
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Accessing WRDS Datasets in Python</p>
+        <p class="prev-next-title">Accessing WRDS Datasets</p>
       </div>
     </a>
     <a class="right-next"
-       href="explore.html"
+       href="workflow_p.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span style="color:purple">Exploring Datasets and Tables</span></p>
+        <p class="prev-next-title"><span style="color:purple">TAQ Project in Python</span></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -503,7 +644,22 @@ Done
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-purple-make-a-hidden-credential-file-span"><span style="color:purple"><em>Make a Hidden Credential File</em></span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-purple-connecting-through-python-span"><span style="color:purple"><em>Connecting through Python</em></span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#span-style-color-purple-connecting-through-r-span"><span style="color:purple"><em>Connecting through R</em></span></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
@@ -524,7 +680,7 @@ By Research Support
 
   <p class="copyright">
     
-      © Copyright Copyright 2024.
+      © Copyright 2024.
       <br/>
     
   </p>

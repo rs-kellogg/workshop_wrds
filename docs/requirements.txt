@@ -1,3 +1,9 @@
 jupyter-book
+wrds
+pandas
 matplotlib
-numpy
+seaborn
+R-DBI
+R-Rpostgres
+R-lubridate
+R-ggplot2

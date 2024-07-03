@@ -65,8 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'explore';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Basic WRDS Queries" href="query.html" />
-    <link rel="prev" title="Setup - Authenticate to WRDS API" href="setup.html" />
+    <link rel="next" title="TAQ Project in Python" href="workflow_p.html" />
+    <link rel="prev" title="Setup - Authenticate to WRDS" href="setup.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -172,15 +172,15 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Accessing WRDS Datasets in Python
+                    Accessing WRDS Datasets
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="setup.html"><span style="color:purple">Setup - Authenticate to WRDS API</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html"><span style="color:purple">Setup - Authenticate to WRDS</span></a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#"><span style="color:purple">Exploring Datasets and Tables</span></a></li>
-<li class="toctree-l1"><a class="reference internal" href="query.html"><span style="color:purple">Basic <strong>WRDS</strong> Queries</span></a></li>
-<li class="toctree-l1"><a class="reference internal" href="workflow.html">Integrate WRDS into KLC Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow_p.html"><span style="color:purple">TAQ Project in Python</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow_r.html"><span style="color:purple">TAQ Project in R</span></a></li>
 </ul>
 
     </div>
@@ -391,7 +391,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="span-style-color-purple-exploring-datasets-and-tables-span">
 <h1><span style="color:purple">Exploring Datasets and Tables</span><a class="headerlink" href="#span-style-color-purple-exploring-datasets-and-tables-span" title="Permalink to this heading">#</a></h1>
-<p>Import the <code class="docutils literal notranslate"><span class="pre">wrds</span></code> package in python, along with any other packages you will use.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">wrds</span></code> package in python also allow you to explore the database and corresponding tables in a way that WRDS connections through other programming languages do not. To follow along with this guide, please load the wrds package along with any other packages you will use.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># packages</span>
@@ -475,29 +475,9 @@ list_libraries() method of wrds.sql.Connection instance
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">conn</span><span class="o">.</span><span class="n">list_tables</span><span class="p">(</span><span class="n">library</span><span class="o">=</span><span class="s1">&#39;bvd_orbis_large&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;ob_additional_company_info_l&#39;,
- &#39;ob_all_addresses_l&#39;,
- &#39;ob_all_cur_shh_1st_level_l&#39;,
- &#39;ob_all_subs_first_level_l&#39;,
- &#39;ob_auditors_current_l&#39;]
-</pre></div>
-</div>
-</div>
-</div>
 <p>To find a list of datasets by vendor, go here:</p>
 <p>To find table descriptions and variable definitions, go:
 <a class="reference external" href="https://wrds-www.wharton.upenn.edu/pages/about/data-vendors">https://wrds-www.wharton.upenn.edu/pages/about/data-vendors</a></p>
-<ul class="simple">
-<li><p>here for Compustat:</p></li>
-<li><p>here for BVD Orbis: <a class="reference external" href="https://wrds-www.wharton.upenn.edu/pages/about/data-vendors/bureau-van-dijk-bvd/">https://wrds-www.wharton.upenn.edu/pages/about/data-vendors/bureau-van-dijk-bvd/</a></p></li>
-</ul>
 <p>To find a description of a particular table in a database.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -773,15 +753,15 @@ list_libraries() method of wrds.sql.Connection instance
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span style="color:purple">Setup - Authenticate to WRDS API</span></p>
+        <p class="prev-next-title"><span style="color:purple">Setup - Authenticate to WRDS</span></p>
       </div>
     </a>
     <a class="right-next"
-       href="query.html"
+       href="workflow_p.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span style="color:purple">Basic <strong>WRDS</strong> Queries</span></p>
+        <p class="prev-next-title"><span style="color:purple">TAQ Project in Python</span></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

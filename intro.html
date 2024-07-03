@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Accessing WRDS Datasets in Python &#8212; Accessing WRDS API through Python</title>
+    <title>Accessing WRDS Datasets &#8212; Accessing WRDS API through Python</title>
   
   
   
@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Setup - Authenticate to WRDS API" href="setup.html" />
+    <link rel="next" title="Setup - Authenticate to WRDS" href="setup.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -171,15 +171,15 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1 current active">
                 <a class="reference internal" href="#">
-                    Accessing WRDS Datasets in Python
+                    Accessing WRDS Datasets
                 </a>
             </li>
         </ul>
         <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="setup.html"><span style="color:purple">Setup - Authenticate to WRDS API</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html"><span style="color:purple">Setup - Authenticate to WRDS</span></a></li>
 <li class="toctree-l1"><a class="reference internal" href="explore.html"><span style="color:purple">Exploring Datasets and Tables</span></a></li>
-<li class="toctree-l1"><a class="reference internal" href="query.html"><span style="color:purple">Basic <strong>WRDS</strong> Queries</span></a></li>
-<li class="toctree-l1"><a class="reference internal" href="workflow.html">Integrate WRDS into KLC Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow_p.html"><span style="color:purple">TAQ Project in Python</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow_r.html"><span style="color:purple">TAQ Project in R</span></a></li>
 </ul>
 
     </div>
@@ -363,7 +363,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Accessing WRDS Datasets in Python</h1>
+    <h1>Accessing WRDS Datasets</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -377,8 +377,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="accessing-wrds-datasets-in-python">
-<h1>Accessing WRDS Datasets in Python<a class="headerlink" href="#accessing-wrds-datasets-in-python" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="accessing-wrds-datasets">
+<h1>Accessing WRDS Datasets<a class="headerlink" href="#accessing-wrds-datasets" title="Permalink to this heading">#</a></h1>
 <p>Wharton Research Data Services (<strong>WRDS</strong>) offers a multitude of ways to access the datasets they host.  A few of which include:</p>
 <ul class="simple">
 <li><p>Web Query Forms through the <a class="reference external" href="https://wrds-www.wharton.upenn.edu">Online Platform</a></p></li>
@@ -388,14 +388,14 @@ document.write(`
 <li><p><a class="reference external" href="https://wrds-www.wharton.upenn.edu/pages/grid-items/accessing-wrds-cloud/">The WRDS Cloud</a></p></li>
 <li><p>Various Libraries allow you to connect to WRDS from your computer</p></li>
 </ul>
-<p>To seamlessly integrate your <strong>WRDS</strong> queries into your research workflow, you can access the <strong>WRDS</strong> API from Python with the <a class="reference external" href="https://pypi.org/project/wrds/"><code class="docutils literal notranslate"><span class="pre">wrds</span></code></a> package.
-This package will enable you to connect to <strong>WRDS</strong> anywhere including your own computer or <strong>KLC</strong>.</p>
+<p>To seamlessly integrate your <strong>WRDS</strong> queries into your research workflow, you can access the <strong>WRDS</strong> API from Python with the <a class="reference external" href="https://pypi.org/project/wrds/"><code class="docutils literal notranslate"><span class="pre">wrds</span></code></a> package, or from R with the <a class="reference external" href="https://cran.r-project.org/web/packages/RPostgres/index.html"><code class="docutils literal notranslate"><span class="pre">RPostgres</span></code></a> library .</p>
+<p>Both of these tool will enable you to connect to <strong>WRDS</strong> anywhere including <strong>KLC</strong> or your own computer.</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="setup.html"><span style="color:purple">Setup - Authenticate to WRDS API</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html"><span style="color:purple">Setup - Authenticate to WRDS</span></a></li>
 <li class="toctree-l1"><a class="reference internal" href="explore.html"><span style="color:purple">Exploring Datasets and Tables</span></a></li>
-<li class="toctree-l1"><a class="reference internal" href="query.html"><span style="color:purple">Basic <strong>WRDS</strong> Queries</span></a></li>
-<li class="toctree-l1"><a class="reference internal" href="workflow.html">Integrate WRDS into KLC Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow_p.html"><span style="color:purple">TAQ Project in Python</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow_r.html"><span style="color:purple">TAQ Project in R</span></a></li>
 </ul>
 </div>
 </section>
@@ -435,7 +435,7 @@ This package will enable you to connect to <strong>WRDS</strong> anywhere includ
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span style="color:purple">Setup - Authenticate to WRDS API</span></p>
+        <p class="prev-next-title"><span style="color:purple">Setup - Authenticate to WRDS</span></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

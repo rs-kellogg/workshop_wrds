@@ -66,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="TAQ Project in R" href="workflow_r.html" />
-    <link rel="prev" title="Exploring Datasets and Tables" href="explore.html" />
+    <link rel="prev" title="Explore Datasets and Tables" href="explore.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -178,7 +178,7 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="setup.html"><span style="color:purple">Setup - Authenticate to WRDS</span></a></li>
-<li class="toctree-l1"><a class="reference internal" href="explore.html"><span style="color:purple">Exploring Datasets and Tables</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="explore.html"><span style="color:purple">Explore Datasets and Tables</span></a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#"><span style="color:purple">TAQ Project in Python</span></a></li>
 <li class="toctree-l1"><a class="reference internal" href="workflow_r.html"><span style="color:purple">TAQ Project in R</span></a></li>
 </ul>
@@ -396,9 +396,9 @@ document.write(`
 <p>In this project, we’ll use the <strong>NYSE Trade and Quote (TAQ)</strong> database on WRDS described here: <a class="reference external" href="https://wrds-www.wharton.upenn.edu/pages/about/data-vendors/nyse-trade-and-quote-taq/">https://wrds-www.wharton.upenn.edu/pages/about/data-vendors/nyse-trade-and-quote-taq/</a>.  This is our workflow:</p>
 <ol class="arabic simple">
 <li><p>Select a company and a trading date. Fetch stock price data for this company by the second.</p></li>
-<li><p>Obtain the five-second average stock price for each observation (not a rolling average) as a new table.</p></li>
+<li><p>Obtain the five-minute average stock price for each observation (not a rolling average) as a new table.</p></li>
 <li><p>Merge the two tables.</p></li>
-<li><p>Graph the time series for the stock prices with the 5 minute average indicated by blue dots.</p></li>
+<li><p>Graph the time series for the stock prices with the five-minute average indicated by blue dots.</p></li>
 </ol>
 <p>To get started, we’ll first load our python libraries and then establish a WRDS connection.</p>
 <div class="cell docutils container">
@@ -586,7 +586,7 @@ For example, when doing &#39;df[col].method(value, inplace=True)&#39;, try using
 <img alt="_images/f01573c481797fb00b4e86520668a309472bbe9517786e41b421ee77787e61b8.png" src="_images/f01573c481797fb00b4e86520668a309472bbe9517786e41b421ee77787e61b8.png" />
 </div>
 </div>
-<p>Now let’s scale up this project on KLC with taq_project.py</p>
+<p>Now let’s scale up this project on KLC with <strong>taq_project.py</strong>.</p>
 </section>
 </section>
 
@@ -626,7 +626,7 @@ For example, when doing &#39;df[col].method(value, inplace=True)&#39;, try using
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span style="color:purple">Exploring Datasets and Tables</span></p>
+        <p class="prev-next-title"><span style="color:purple">Explore Datasets and Tables</span></p>
       </div>
     </a>
     <a class="right-next"

@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Exploring Datasets and Tables &#8212; Accessing WRDS API through Python</title>
+    <title>Explore Datasets and Tables &#8212; Accessing WRDS API through Python</title>
   
   
   
@@ -178,7 +178,7 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="setup.html"><span style="color:purple">Setup - Authenticate to WRDS</span></a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#"><span style="color:purple">Exploring Datasets and Tables</span></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#"><span style="color:purple">Explore Datasets and Tables</span></a></li>
 <li class="toctree-l1"><a class="reference internal" href="workflow_p.html"><span style="color:purple">TAQ Project in Python</span></a></li>
 <li class="toctree-l1"><a class="reference internal" href="workflow_r.html"><span style="color:purple">TAQ Project in R</span></a></li>
 </ul>
@@ -366,7 +366,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1><span style="color:purple">Exploring Datasets and Tables</span></h1>
+    <h1><span style="color:purple">Explore Datasets and Tables</span></h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -389,8 +389,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="span-style-color-purple-exploring-datasets-and-tables-span">
-<h1><span style="color:purple">Exploring Datasets and Tables</span><a class="headerlink" href="#span-style-color-purple-exploring-datasets-and-tables-span" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="span-style-color-purple-explore-datasets-and-tables-span">
+<h1><span style="color:purple">Explore Datasets and Tables</span><a class="headerlink" href="#span-style-color-purple-explore-datasets-and-tables-span" title="Permalink to this heading">#</a></h1>
 <p>The <code class="docutils literal notranslate"><span class="pre">wrds</span></code> package in python also allow you to explore the database and corresponding tables in a way that WRDS connections through other programming languages do not. To follow along with this guide, please load the wrds package along with any other packages you will use.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -404,7 +404,7 @@ document.write(`
 <p>Once you have a hidden pgpass file saved, you will not have to enter your crednetials the next time you login to the <strong>WRDS</strong> API in python.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">conn</span> <span class="o">=</span> <span class="n">wrds</span><span class="o">.</span><span class="n">Connection</span><span class="p">(</span><span class="n">wrds_username</span><span class="o">=</span><span class="s1">&#39;ambreen&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">conn</span> <span class="o">=</span> <span class="n">wrds</span><span class="o">.</span><span class="n">Connection</span><span class="p">(</span><span class="n">wrds_username</span><span class="o">=</span><span class="s1">&#39;best-user-ever&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -475,8 +475,7 @@ list_libraries() method of wrds.sql.Connection instance
 </div>
 </div>
 </div>
-<p>To find a list of datasets by vendor, go here:</p>
-<p>To find table descriptions and variable definitions, go:
+<p>To find table descriptions and variable definitions, go to the <strong>Data Dictionary</strong> by vendor here:
 <a class="reference external" href="https://wrds-www.wharton.upenn.edu/pages/about/data-vendors">https://wrds-www.wharton.upenn.edu/pages/about/data-vendors</a></p>
 <p>To find a description of a particular table in a database.</p>
 <div class="cell docutils container">
